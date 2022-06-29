@@ -4,20 +4,18 @@ var CustomerService = require('../services/service.customer');
 
 /* GET customer listing. */
 router.get('/', async (req, res, next) => {
-	// res.json(CustomerService.create());
-	res.json({error: "Invalid Customer UID."});
+	const customers = CustomerService.retrieveAll();
+	return res.send(customers);
 });
 
 /* adds a new customer to the list */
 router.post('/', async (req, res, next) => {
 	const body = req.body;
 
-	try
-	{
-		const customer = await CustomerService.create(body);
+	try{
+		const customer = CustomerService.create(body);
 
-		if(body.guid != null)
-		{
+		if(body.guid != null){
 			customer.guid = body.guid;
 		}
 
@@ -26,59 +24,46 @@ router.post('/', async (req, res, next) => {
 		// created the customer! 
 		return res.status(201).json({ customer: customer });
 	}
-	catch(err)
-	{
-		if (err.name === 'ValidationError')
-		{
+	catch(err){
+		if (err.name === 'ValidationError'){
         	return res.status(400).json({ error: err.message });
 		}
-
-		// unexpected error
 		return next(err);
 	}
 });
 
 /* retrieves a customer by uid */
 router.get('/:id', async (req, res, next) => {
-	try
-	{
+	try{
 		const customer = await CustomerService.retrieve(req.params.id);
 
 		return res.json({ customer: customer });
 	}
-	catch(err)
-	{
-		// unexpected error
+	catch(err){
 		return next(err);
 	}
 });
 
 /* updates the customer by uid */
 router.put('/:id', async (req, res, next) => {
-	try
-	{
+	try{
 		const customer = await CustomerService.update(req.params.id, req.body);
 
 		return res.json({ customer: customer });
 	}
-	catch(err)
-	{
-		// unexpected error
+	catch(err){
 		return next(err);
 	}
 });
 
 /* removes the customer from the customer list by uid */
 router.delete('/:id', async (req, res, next) => {
-	try
-	{
+	try{
 		const customer = await CustomerService.delete(req.params.id);
 
 		return res.json({success: true});
 	}
-	catch(err)
-	{
-		// unexpected error
+	catch(err){
 		return next(err);
 	}
 });

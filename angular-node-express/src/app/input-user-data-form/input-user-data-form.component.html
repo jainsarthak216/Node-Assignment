@@ -20,7 +20,7 @@
 
 	<div class="form-group" [ngClass]="{ 'has-error': invalidZipcode() }"> <!-- Zip Code-->
 		<label for="zipcode" class="control-label">Zip Code</label>
-		<input type="text" formControlName="zipcode" class="form-control" id="zipcode" name="zipcode" placeholder="##### (Max. Length - 5)">
+		<input type="text" formControlName="zipcode" class="form-control" id="zipcode" name="zipcode" placeholder="######">
 		<p *ngIf="invalidZipcode()" id="zipcode_error" class="help-block">Invalid zip code.</p>
 	</div>
 

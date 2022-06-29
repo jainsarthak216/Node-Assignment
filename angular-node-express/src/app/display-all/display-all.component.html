@@ -1,0 +1,40 @@
+<legend>Users Information</legend>
+<div *ngFor = "let user of keys; let i = index"> 
+    <h3>User {{i+1}}</h3> <br>
+	<div class="form-group row">
+		<label class="col-xs-6 col-form-label">GUID</label>
+		<div class="col-xs-6">{{users[user].guid}}</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-xs-6 col-form-label">Customer UID</label>
+		<div class="col-xs-6">{{users[user].uid}}</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-xs-6 col-form-label">First Name</label>
+		<div class="col-xs-6">{{users[user].first_name}}</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-xs-6 col-form-label">Last Name</label>
+		<div class="col-xs-6">{{users[user].last_name}}</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-xs-6 col-form-label">E-mail</label>
+		<div class="col-xs-6">{{users[user].email}}</div>
+	</div>
+
+	<div class="form-group row"> 
+		<label class="col-xs-6 col-form-label">Zip Code</label>
+		<div class="col-xs-6">{{users[user].zipcode}}</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-xs-6 col-form-label">Password</label>
+		<div class="col-xs-6">{{users[user].password}}</div>
+	</div>
+
+    <hr>
+</div>	
