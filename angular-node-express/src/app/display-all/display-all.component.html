@@ -37,9 +37,9 @@
 		<div class="col-xs-6">{{users[user].password}}</div>
 	</div>
 	
-	<div class="form-group row">
-		<button class="btn btn-primary" style="margin-left:10px;" (click) = "onEdit(users[user].uid)"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
-		<button class="btn btn-primary" style="margin-left:10px;" (click) = "onDelete(users[user].uid)"><i class="fa-regular fa-trash-can"></i>Delete</button>
+	<div class="form-group">
+		<button class="btn btn-primary" (click) = "onEdit(users[user].uid)"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+		<button class="btn btn-primary" style="margin-left:15px;" (click) = "onDelete(users[user].uid)"><i class="fa-regular fa-trash-can"></i> Delete</button>
 	</div>
 
     <hr>
