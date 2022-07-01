@@ -3,8 +3,8 @@ var router = express.Router();
 var CustomerService = require('../services/service.customer');
 
 /* GET customer listing. */
-router.get('/', async (req, res, next) => {
-	const customers = CustomerService.retrieveAll();
+router.get('/all', async (req, res, next) => {
+	const customers = await CustomerService.retrieveAll();
 	return res.send(customers);
 });
 
@@ -13,7 +13,7 @@ router.post('/', async (req, res, next) => {
 	const body = req.body;
 
 	try{
-		const customer = CustomerService.create(body);
+		const customer = await CustomerService.create(body);
 
 		if(body.guid != null){
 			customer.guid = body.guid;
